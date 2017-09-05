@@ -1,10 +1,11 @@
 #!/bin/sh
 
-. common.sh
+SCRIPTDIR=$(dirname -- "$0")
+. $SCRIPTDIR/common.sh
 
 
 
-get_user
+get_cert_name
 
 mkdir -p tmp/$certfile
 cp certs/$certfile.pem tmp/$certfile/$certfile.pem

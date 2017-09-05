@@ -1,6 +1,7 @@
 #!/bin/sh
 
-. common.sh
+SCRIPTDIR=$(dirname -- "$0")
+. $SCRIPTDIR/common.sh
 
 if [ -f "private/ca.key" ]; then
     echo "ERROR: CA already exists. Not creating"

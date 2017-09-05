@@ -1,6 +1,6 @@
 #!/bin/sh
 
-get_user() {
+get_cert_name() {
         _input=
 
         # No need to take down user names if this is a configuration saving run.
