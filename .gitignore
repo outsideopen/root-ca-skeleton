@@ -3,9 +3,9 @@
 .idea/
 
 # CA directories
-certs/*
-crl/*
-db/*
-newcerts/*
-private/*
-requests/*
+certs/
+crl/
+db/
+newcerts/
+private/
+requests/
