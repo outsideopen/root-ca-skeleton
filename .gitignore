@@ -1,0 +1,11 @@
+# Be a good neighbor
+*.swp
+.idea/
+
+# CA directories
+certs/*
+crl/*
+db/*
+newcerts/*
+private/*
+requests/*
