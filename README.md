@@ -4,12 +4,8 @@ This repository is designed as a skeleton for an offline, or well encrypted onli
 
 It has several methods for handling the creation and signing of certs.
 
-== Creating the Root CA
+== Using the Root CA
 
-This should only be done once
+Before starting it is recommended to update the openssl.conf for your needs.
 
-=== Create the CA
-
-```
-openssl req -new -config ./openssl.conf
-```
+Specifically the `req_distinguished_name` and the `server_cert::crlDistributionPoints` settings for your ca data
