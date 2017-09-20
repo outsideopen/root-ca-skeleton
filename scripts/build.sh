@@ -3,10 +3,16 @@
 SCRIPTDIR=$(dirname -- "$0")
 . $SCRIPTDIR/common.sh
 
-if [ -f "private/ca.key" ]; then
-    echo "ERROR: CA already exists. Not creating"
+if [ ! -f "private/root.pem" ]; then
+    echo "ERROR: missing CA Key"
+    echo "==== Please create using the following command"
+    echo ""
+    echo "openssl ecparam -name secp384r1 -genkey | openssl ec -aes-256-cbc -out private/root.pem"
+    echo ""
     exit 1
 fi
 
-openssl req -new -config ./openssl.conf -out requests/ca.csr -keyout private/ca.key
-openssl ca -selfsign -config ./openssl.conf -in requests/ca.csr -out certs/ca.crt -extensions v3_ca
+chmod 444 private/root.pem
+
+openssl req -new -config ./openssl.conf -key private/root.pem \
+            -out certs/root.pem -extensions ext_root -x509 -days 7300
